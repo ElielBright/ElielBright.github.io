@@ -81,6 +81,31 @@ body.dark-mode .card{
 body.dark-mode .card-img-top{
     background-color: #333333;
 }
+/* Centering the navigation content */
+.navbar {
+    display: flex;
+    justify-content: center; /* Centers the navbar content horizontally */
+    align-items: center; /* Centers the navbar content vertically */
+}
+
+.navbar-brand {
+    margin-right: auto; /* Align the brand to the left */
+}
+
+.navbar-nav {
+    margin-left: auto; /* Align the navigation links to the right */
+    margin-right: auto; /* Align the navigation links to the left */
+}
+
+/* Adjusting the nav links for a slight shift towards the middle */
+.nav-link {
+    padding: 10px 15px; /* Adjust the padding as needed */
+}
+
+.nav-item {
+    margin-left: 10px; /* Adds spacing between nav items */
+    margin-right: 10px; /* Adjust for desired centering */
+}
 
 .navbar-brand {
     font-family: 'Montserrat', sans-serif;
