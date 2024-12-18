@@ -1,0 +1,657 @@
+/* Base styles */
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #333;  /* Dark background for contrast */
+    color: #f5f5f5;  /* Light text color for readability */
+}
+html {
+    scroll-behavior: smooth;
+}
+h1, h2 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #61c6ff;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+#logo {
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+    margin: 50px;
+}
+
+/* Custom styles */
+header {
+    background-color: rgba(45, 45, 45, 0.667);  /* Darker header background */
+}
+span {
+    color: #61c6ff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Horizontally center the button */
+    align-items: center; /* Vertically center if needed */
+    margin-top: 20px; /* Add spacing above if necessary */
+  }
+  .submit-button {
+    padding: 10px 20px; /* Adjust padding for better button appearance */
+    font-size: 16px; /* Adjust font size */
+  }  
+
+#projects {
+    background-color: #212121;
+    color: #f8f9fa; /* Light font color for contrast */
+    padding: 30px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+#projects h2 {
+    color: #61c6ff !important; /* Blue for the section heading */
+    font-weight: bold;
+  }
+
+/* Remove the border around the card */
+.card {
+    background-color: #343a40; /* Slightly lighter than the background */
+    color: #f8f9fa; /* Light font for text readability */
+    border: 1px solid #495057; /* Subtle card border */
+  }
+  .card h5.card-title {
+    color: #ffc107; /* Golden yellow to highlight titles */
+    font-weight: bold;
+  }
+  
+  .card a.btn {
+    background-color: #61c6ff; /* Blue buttons */
+    color: #fff; /* White text for buttons */
+    border: none;
+  }
+  
+  .card a.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    color: #fff;
+  }
+
+
+
+.about {
+    color: #61c6ff;
+}
+
+
+/* About Section Styling */
+.about-section {
+    background: #f9f9f9;
+    padding: 4rem 2rem;
+    color: #333;
+    font-family: 'Lato', sans-serif;
+    border-radius: 15px;
+}
+
+.about-content h2, .skills-heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #61c6ff;
+    text-align: center;
+    border-bottom: 2px solid #61c6ff;
+    padding-bottom: 0.5rem;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Quote Styling */
+.about-quote {
+    font-style: italic;
+    color: #444;
+    margin: 2rem auto;
+    text-align: center;
+    font-size: 1.2rem;
+    border-left: 5px solid #61c6ff;
+    padding-left: 1rem;
+    width: 70%;
+}
+
+/* Timeline Styling */
+.timeline {
+    margin: 2rem auto;
+    border-left: 3px solid #61c6ff;
+    padding-left: 1.5rem;
+    max-width: 600px;
+}
+
+.timeline-item {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '•';
+    position: absolute;
+    left: -1.2rem;
+    top: 0;
+    font-size: 1.5rem;
+    color: #ff6f61;
+}
+
+.timeline-item h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+/* Skills Section */
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.skill-card {
+    background: #555;
+    color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 120px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card i {
+    font-size: 2rem;
+    color: #61c6ff;
+    margin-bottom: 0.5rem;
+}
+
+/* Fun Facts */
+.fun-facts {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.fun-facts h3 {
+    color: #61c6ff;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.fun-facts ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+}
+
+.fun-facts li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+
+
+
+/* Add background color to the image and ensure it's responsive */
+.card-img-top {
+    background-color: #555; /* Adjusted to match new color scheme */
+    padding: 10px;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+/* Add some padding to the top of the card */
+body.dark-mode .card {
+    background-color: #222222;
+}
+body.dark-mode .card-img-top {
+    background-color: #222222;
+}
+
+#dark-mode-toggle {
+    position: fixed; /* Keeps it in the same position while scrolling */
+    bottom: 3rem;    /* Distance from the bottom */
+    left: 2rem;      /* Distance from the left */
+    color: #fff;     /* Text color */
+    padding: 0.8rem 1.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    cursor: pointer; /* Pointer for interactivity */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 1000; /* Ensures it stays on top of other elements */
+}
+
+
+
+/* Centering the navigation content */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-brand {
+    margin-right: auto;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Adjusting the nav links for a slight shift towards the middle */
+.nav-link {
+    padding: 10px 15px;
+}
+
+.nav-item {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Smooth scrolling for navigation */
+
+/* Style for the logo */
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #fff;
+    transition: transform 0.3s ease-in-out;
+    margin-left: 20px;
+}
+
+/* Logo hover effect */
+.navbar-brand:hover {
+    transform: scale(1.1);
+    color: #61c6ff;
+}
+
+/* Nav links hover effect */
+.nav-link {
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #61c6ff !important;
+    background-color: #f8f9fa4e;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: underline;
+    text-decoration-style: solid;
+}
+
+body.dark-mode .nav-link:hover {
+    color: #61c6ff;
+    background-color: #333333;
+    border-radius: 2px;
+    text-decoration: underline;
+}
+
+body.dark-mode .card {
+    color: #fff;
+}
+
+/* Contact form styles */
+#contact {
+    background-color: #ffffff49;
+    padding: 2rem;
+    border-radius: 8px;
+    color: #61c6ff !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #666666;
+}
+
+.contact-form .form-control {
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem;
+}
+
+.contact-form .form-control:focus {
+    border-color: #61c6ff;
+    box-shadow: 0 0 5px rgba(97, 198, 255, 0.5);
+}
+
+.contact-form .submit-button {
+    background-color: #ff6f61;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    justify-content: center;
+}
+
+.contact-form .submit-button:hover {
+    background-color: #e65f50;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #212121;
+    color: #f5f5f5;
+}
+
+body.dark-mode h2 {
+    border-bottom-color: #61c6ff;
+}
+
+body.dark-mode #contact {
+    background-color: #333333;
+    color: #f5f5f5;
+    box-shadow: none;
+}
+
+body.dark-mode .contact-form .form-control {
+    background-color: #444444;
+    border-color: #666666;
+    color: #f5f5f5;
+}
+
+body.dark-mode .contact-form .form-control:focus {
+    border-color: #61c6ff;
+    box-shadow: 0 0 5px rgba(97, 198, 255, 0.5);
+}
+
+body.dark-mode .contact-form .submit-button {
+    background-color: #ff6f61;
+}
+
+body.dark-mode footer {
+    background-color: #212121;
+}
+
+body.dark-mode .navbar-brand {
+    color: #61c6ff;
+}
+
+/* Add keyframes for the skill bar animation */
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--skill-level);
+    }
+}
+
+/* Base styles for the skill elements */
+/* Skills Section */
+.skills-section {
+    padding: 3rem 1rem;
+    background-color: #222; /* Dark background for contrast */
+    color: #f5f5f5;
+    border-radius: 10px;
+}
+
+.skills-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #61c6ff; /* Accent color */
+    text-align: center;
+    border-bottom: 2px solid #61c6ff;
+    padding-bottom: 0.5rem;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background: #444; /* Slightly lighter background for contrast */
+    color: #f5f5f5;
+    padding: 1.5rem;
+    width: 150px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.skill-card i {
+    font-size: 2rem;
+    color: #61c6ff;
+    margin-bottom: 0.5rem;
+}
+
+.skill-card p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    background-color: #61c6ff;
+    color: #333;
+}
+
+.skill-card:hover i {
+    color: #333;
+}
+
+
+/* Class to trigger the animation */
+
+
+.but {
+    background-color: #212121;
+    color: #fbfbfb;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.but:hover {
+    background-color: #61c6ff;
+    color: #212121;
+}
+
+
+/* Footer styles */
+footer {
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .social-media {
+    margin-bottom: 1rem;
+}
+
+footer .social-media a {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+footer .social-media a:hover {
+    color: #61c6ff;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .carousel-item img {
+        height: 400px;
+    }
+
+    .typing-effect {
+        font-size: 1.75rem;
+    }
+
+    header .navbar-brand {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .typing-effect {
+        font-size: 1.5rem;
+    }
+
+    header .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 200px;
+    }
+
+    .typing-effect {
+        font-size: 1.25rem;
+    }
+
+    header .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .contact-form .submit-button {
+        width: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-item img {
+        height: 150px;
+    }
+
+    .typing-effect {
+        font-size: 1rem;
+    }
+
+    header .navbar-brand {
+        font-size: 1rem;
+    }
+}
+
+/* Updated Hero Section */
+.hero {
+    background: linear-gradient(135deg, #ff6f61, #61c6ff);
+    padding: 5rem 1rem;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.hero-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+.hero-content p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+#backToTop {
+    position: fixed; /* Keep it in place */
+    bottom: 2rem;    /* Distance from the bottom */
+    right: 2rem;     /* Distance from the right */
+    background-color: #ff6f61; /* Accent color */
+    color: #fff;     /* Text color */
+    padding: 0.8rem 1.2rem;
+    border-radius: 50%; /* Circular button */
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    z-index: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#backToTop:hover {
+    background-color: #61c6ff; /* Hover color */
+    transform: translateY(-5px); /* Slight lift effect */
+}
+
+.button {
+    display: inline-block;
+    background-color: #212121;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.button:hover {
+    background-color: #ff6f61;
+}
+
+/* Skills Section */
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    background: #f5f5f5;
+}
+.skill-card {
+    background: #ff6f61;
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliel Bright's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="#">MY PORTFOLIO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="container mt-5 pt-5">
+        <!-- About Section -->
+        <section id="about" class="about-section">
+          <div class="about-content">
+              <h2 style="font-weight: bold;">About Me</h2>
+              <p>
+                  Hi, I'm <strong>Eliel Kwesi Nyamekye</strong>, a passionate <strong>full-stack developer</strong>, tech enthusiast, 
+                  and machine learning explorer. I specialize in creating modern applications using 
+                  <strong>React</strong>, <strong>Node.js</strong>, <strong>Express.js</strong>, <strong>MongoDB</strong>, and <strong>Python</strong>.
+              </p>
+              
+              <!-- Quote -->
+              <blockquote class="about-quote">
+                  "Building solutions that empower and inspire - one line of code at a time."
+              </blockquote>
+      
+              <!-- Timeline -->
+              <div class="timeline">
+                  <div class="timeline-item">
+                      <h3>2024 - Hackathon Project</h3>
+                      <p>
+                          Built <strong>CardioAR</strong>, a 3D interactive learning tool, during a hackathon with Skapezmpier.
+                      </p>
+                  </div>
+                  <div class="timeline-item">
+                      <h3>2023 - Lead Developer at OneHeartCares</h3>
+                      <p>
+                          Developed their homepage and a custom ticketing app to streamline event management.
+                      </p>
+                  </div>
+                  <div class="timeline-item">
+                      <h3>2022 - Machine Learning Projects</h3>
+                      <p>
+                          Worked on machine learning solutions using <strong>Python</strong> and <strong>Google Colab</strong>.
+                      </p>
+                  </div>
+              </div>
+      
+              <!-- Skills Section -->
+              <h3 class="skills-heading" style="font-weight: bold;" >Technical Skills</h3>
+              <div class="skills-container">
+                  <div class="skill-card">
+                      <i class="fab fa-react"></i>
+                      <p>React</p>
+                  </div>
+                  <div class="skill-card">
+                      <i class="fab fa-node-js"></i>
+                      <p>Node.js</p>
+                  </div>
+                  <div class="skill-card">
+                      <i class="fas fa-database"></i>
+                      <p>MongoDB</p>
+                  </div>
+                  <div class="skill-card">
+                      <i class="fab fa-python"></i>
+                      <p>Python</p>
+                  </div>
+              </div>
+      
+              <!-- Fun Facts -->
+              <div class="fun-facts">
+                  <h3 style="font-weight: bold;">Fun Facts About Me</h3>
+                  <ul>
+                      <li>I love teaching kids about technology and coding.</li>
+                      <li>I built a <strong>custom AI chatbot</strong> for online stores.</li>
+                      <li>I enjoy solving real-world problems with machine learning.</li>
+                  </ul>
+              </div>
+          </div>
+      </section>
+      
+        
+        <button id="backToTop" class="btn btn-dark">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    
+        <!-- Projects Section -->
+<section id="projects" class="mb-5">
+  <h2 class="text-center text-success" style="font-weight: bold; font-size: 30px;">Projects</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    
+    <!-- 3D Interactive Learning -->
+    <div class="col">
+      <div class="card h-100">
+        <a href="https://3-d-interactive.vercel.app/" target="_blank">
+          <img src="img/3dinteractive.png" class="card-img-top" alt="3D Interactive Learning">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">3D Interactive Learning</h5>
+          <p class="card-text">An immersive learning experience through interactive 3D models.</p>
+          <a href="https://github.com/ElielBright/3D-Interactive.git" class="btn btn-secondary" target="_blank">GitHub Repo</a>
+          <a href="https://3-d-interactive.vercel.app/" class="btn btn-secondary" target="_blank">Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CardioAR -->
+    <div class="col">
+      <div class="card h-100">
+        <a href="hhttps://youtu.be/ZfEZE10CSfk" target="_blank">
+          <img src="img/cardioAR.png" class="card-img-top" alt="CardioAR">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">CardioAR</h5>
+          <p class="card-text">A 3D interactive platform for cardiovascular education and learning.</p>
+          <a href="hhttps://github.com/ElielBright/cardioAR.git" class="btn btn-secondary" target="_blank">GitHub Repo</a>
+          <a href="https://youtu.be/ZfEZE10CSfk" class="btn btn-secondary" target="_blank">Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ember -->
+    <div class="col">
+      <div class="card h-100">
+        <a href="https://your-demo-link.com" target="_blank">
+          <img src="img/ember.png" class="card-img-top" alt="Ember">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">Ember</h5>
+          <p class="card-text">
+            A custom-made chatbot tailored for online stores and support. Designed with flexibility to integrate future AI enhancements, making it smarter and more efficient as your business grows.
+          </p>               
+           <a href="https://github.com/ElielBright/Ember-custom-Chatbot.git" class="btn btn-secondary" target="_blank">GitHub Repo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripture and Spirit -->
+    <div class="col">
+      <div class="card h-100">
+        <a href="https://scripture-and-spirit-podcast.vercel.app/" target="_blank">
+          <img src="img/scripture-and-spirit.png" class="card-img-top" alt="Scripture and Spirit">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">Scripture and Spirit</h5>
+          <p class="card-text">A digital platform for spiritual and scriptural learning.</p>
+          <a href="https://github.com/ElielBright/Scripture-and-Spirit.git" class="btn btn-secondary" target="_blank">GitHub Repo</a>
+          <a href="https://scripture-and-spirit-podcast.vercel.app/" class="btn btn-secondary" target="_blank">Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sisi's Clothing -->
+    <div class="col">
+      <div class="card h-100">
+        <a href="https://sisi-s-clothing.vercel.app/" target="_blank">
+          <img src="img/Sisis.png" class="card-img-top" alt="Sisi's Clothing">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">Sisi's Clothing</h5>
+          <p class="card-text">Online clothing shop offering a wide range of stylish apparel.</p>
+          <a href="https://github.com/ElielBright/Sisi-s-clothing.git" class="btn btn-secondary" target="_blank">GitHub Repo</a>
+          <a href="https://sisi-s-clothing.vercel.app/" class="btn btn-secondary" target="_blank">Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sweet Delights -->
+    <div class="col">
+      <div class="card h-100">
+        <a href="https://sweet-delights-pastry-shop.vercel.app/" target="_blank">
+          <img src="img/sweet.png" class="card-img-top" alt="Sweet Delights">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">Sweet Delights</h5>
+          <p class="card-text">A pastry shop specializing in delicious fruit-based pastries.</p>
+          <a href="https://github.com/ElielBright/Frutopia.git" class="btn btn-secondary" target="_blank">GitHub Repo</a>
+          <a href="https://sweet-delights-pastry-shop.vercel.app/" class="btn btn-secondary" target="_blank">Demo</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+        
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section mb-5">
+          <h2 class="text-center" style="font-weight: bold;">Skills</h2>
+          <div class="skills-container">
+              <div class="skill-card">
+                  <i class="fas fa-users"></i>
+                  <p>Teamwork</p>
+              </div>
+              <div class="skill-card">
+                  <i class="fab fa-html5"></i>
+                  <p>HTML</p>
+              </div>
+              <div class="skill-card">
+                  <i class="fab fa-css3-alt"></i>
+                  <p>CSS</p>
+              </div>
+              <div class="skill-card">
+                  <i class="fab fa-js-square"></i>
+                  <p>JavaScript</p>
+              </div>
+              <div class="skill-card">
+                  <i class="fab fa-python"></i>
+                  <p>Python</p>
+              </div>
+              <div class="skill-card">
+                  <i class="fas fa-lightbulb"></i>
+                  <p>Problem-solving</p>
+              </div>
+              <div class="skill-card">
+                  <i class="fas fa-laptop-code"></i>
+                  <p>Responsive Design</p>
+              </div>
+              <div class="skill-card">
+                  <i class="fas fa-code"></i>
+                  <p>Front-end Development</p>
+              </div>
+          </div>
+      </section>
+      
+        
+        <!-- Contact Section -->
+        <section id="contact" class="my-5">
+            <h2 class="text-center text-success" style="color: #61c6ff !important; font-size: 30px; font-weight: bold;">Contact</h2>
+            <form action="https://formspree.io/f/xqkrrbrk" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                </div>
+                <div class="button-container">
+                  <button type="submit" class="btn btn-success submit-button">Send</button>
+                </div>
+                </form>
+        </section>
+    </main>
+
+    <!-- Dark mode toggle button -->
+    <button id="dark-mode-toggle" class="btn btn-dark floating-button">
+        <span id="dark-mode-icon">🌖️</span>
+    </button>
+    
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="social-media mb-3">
+            <a href="https://x.com/ElielBright" target="_blank" class="mx-2">
+                <i class="fab fa-twitter fa-2x"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/eliel-bright-7b36282a/" target="_blank" class="mx-2">
+                <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+            <a href="https://github.com/ElielBright" target="_blank" class="mx-2">
+                <i class="fab fa-github fa-2x"></i>
+            </a>
+            <a href="https://www.instagram.com/ElielBright/" target="_blank" class="mx-2">
+                <i class="fab fa-instagram fa-2x"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 Eliel Bright. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
