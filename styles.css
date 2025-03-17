@@ -486,7 +486,7 @@ body.dark-mode .card {
 }
 
 .submit-button:hover {
-    background: linear-gradient(135deg, #0056b3, #61c6ff);
+    background: linear-gradient(135deg, #0056b3, #61c6ff) !important;
     transform: scale(1.05);  /* Slight zoom on hover */
     box-shadow: 0 8px 20px rgba(97, 198, 255, 0.7);
 }
