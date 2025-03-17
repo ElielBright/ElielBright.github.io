@@ -467,22 +467,38 @@ body.dark-mode .card {
     box-shadow: 0 0 5px rgba(97, 198, 255, 0.5);
 }
 
-.contact-form .submit-button {
-    background-color: #ff6f61;
-    color: #ffffff;
+.submit-button {
+    background: linear-gradient(135deg, #61c6ff, #0056b3); 
+    color: #fff;
     border: none;
-    border-radius: 4px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    border-radius: 30px; 
+    padding: 12px 30px; 
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(97, 198, 255, 0.5); 
+    transition: all 0.3s ease;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Space for an icon */
 }
 
-.contact-form .submit-button:hover {
-    background-color: #e65f50;
+.submit-button:hover {
+    background: linear-gradient(135deg, #0056b3, #61c6ff);
+    transform: scale(1.05);  /* Slight zoom on hover */
+    box-shadow: 0 8px 20px rgba(97, 198, 255, 0.7);
 }
+
+.submit-button:active {
+    transform: scale(0.98); /* Click feedback */
+}
+
+.submit-button i {
+    font-size: 1.2rem;
+}
+
 
 
 @keyframes fillBar {
