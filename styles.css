@@ -468,7 +468,7 @@ body.dark-mode .card {
 }
 
 .submit-button {
-    background: linear-gradient(135deg, #61c6ff, #0056b3); 
+    background: linear-gradient(135deg, #61c6ff, #0056b3) !important; 
     color: #fff;
     border: none;
     border-radius: 30px; 
