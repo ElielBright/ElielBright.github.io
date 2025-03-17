@@ -6,45 +6,62 @@
     <title>Eliel Bright's Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div id="particle-container"></div> <!-- Particle Animation Container -->
+
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <a class="navbar-brand" href="#">MY PORTFOLIO</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+        <nav class="navbar">
+          <div class="logo">
+            <a href="#">My Portfolio</a>
+        </div>
+        
+
+            <!-- Custom Toggle Button -->
+            <div class="menu-toggle" id="custom-toggle-btn">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </div>
+          
+
+            <!-- Navigation Menu -->
+            <ul class="nav-list" id="navbarNav">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
-    
+
+   
+
+
     <main class="container mt-5 pt-5">
         <!-- About Section -->
-        <section id="about" class="about-section">
+      <section id="about" class="about-section">
           <div class="about-content">
-              <h2 style="font-weight: bold;">About Me</h2>
+              <h2 style="font-weight: bold;">👋 About Me</h2>
               <p>
-                  Hi, I'm <strong>Eliel Kwesi Nyamekye</strong>, a passionate <strong>full-stack developer</strong>, tech enthusiast, 
+                  Hi, I'm <strong>Eliel Kwesi Agbeke</strong>, a passionate <strong>full-stack developer with expertise in robotics and AI</strong>, I am tech enthusiast, 
                   and machine learning explorer. I specialize in creating modern applications using 
                   <strong>React</strong>, <strong>Node.js</strong>, <strong>Express.js</strong>, <strong>MongoDB</strong>, and <strong>Python</strong> for Machine Learning.
               </p>
               
-              <!-- Quote -->
-              <blockquote class="about-quote">
-                  "Building solutions that empower and inspire - one line of code at a time."
-              </blockquote>
+              
       
               <!-- Timeline -->
               <div class="timeline">
+                <div class="timeline-item">
+                  <h3>2025 - AI Internships at Copianto AI</h3>
+                  <p>
+                      Built <strong>AI agents</strong> and <strong>Retrieval-Augmented Generation (RAG)</strong> solutions during internships with Copianto AI.
+                  </p>
+              </div>              
                   <div class="timeline-item">
                       <h3>2024 - Hackathon Project</h3>
                       <p>
@@ -63,7 +80,20 @@
                           Worked on machine learning solutions using <strong>Python</strong> and <strong>Google Colab</strong>.
                       </p>
                   </div>
+                  <div class="timeline-item">
+                    <h3>2019 - Present: Robotics Projects and Teaching</h3>
+                    <p>
+                        Embarked on robotics projects, from building <strong>robotic arms</strong> to teaching robotics concepts to students. Specialized in <strong>Arduino</strong> and incorporated <strong>AI integration</strong> into robotics education.
+                    </p>
+                </div>
+                
+                  
               </div>
+
+            <!-- Quote -->
+            <blockquote class="about-quote">
+              "Building solutions that empower and inspire - one line of code at a time."
+          </blockquote>
       
               <!-- Skills Section -->
 <h3 class="skills-heading" style="font-weight: bold;">Technical Skills</h3>
@@ -73,7 +103,7 @@
         <p>React</p>
     </div>
     <div class="skill-card">
-        <i class="fab fa-node-js"></i>
+      <i class="fab fa-node"></i>
         <p>Node.js</p>
     </div>
     <div class="skill-card">
@@ -85,11 +115,11 @@
         <p>Python</p>
     </div>
     <div class="skill-card">
-        <i class="fab fa-js-square"></i>
+      <i class="fab fa-js"></i>
         <p>JavaScript </p>
     </div>
     <div class="skill-card">
-        <i class="fas fa-code-branch"></i>
+      <i class="fab fa-github"></i>
         <p>GitHub</p>
     </div>
     <div class="skill-card">
@@ -97,7 +127,7 @@
         <p>HTML & CSS</p>
     </div>
     <div class="skill-card">
-        <i class="fas fa-tachometer-alt"></i>
+      <i class="fab fa-expeditedssl"></i>
         <p>Express.js</p>
     </div>
     
@@ -105,20 +135,27 @@
       <i class="fas fa-brain"></i>
       <p>Machine Learning & AI</p>
     </div>
+    <div class="skill-card">
+      <i class="fas fa-microchip"></i>
+      <p>Robotics</p>
+    </div>
 </div>
 
       
               <!-- Fun Facts -->
               <div class="fun-facts">
-                  <h3 style="font-weight: bold;">Fun Facts About Me</h3>
-                  <ul>
-                      <li>I love teaching kids about technology and coding.</li>
-                      <li>I built a <strong>custom AI chatbot</strong> for online stores.</li>
-                      <li>Bringing ideas to life through code – I love turning my imagination into reality <br> by crafting innovative solutions with programming.</li>
-                  </ul>
-              </div>
+                <h3 style="font-weight: bold;">Cool Facts About Me</h3>
+                <ul>
+                    <li>I'm a tech mentor by day and a code ninja by night – teaching kids how to build robots, code their own games, and unleash their inner inventors!</li>
+                    <li>My team and I once crushed a hackathon by building an epic <strong>3D learning platform with Augmented Reality</strong> – making education feel like a futuristic adventure!</li>
+                    <li>I love transforming wild ideas into working solutions – whether it's crafting cool animations, building clever AI tools, or turning “what if...” into “heck yeah, it works!”</li>
+                    <li>When I’m not coding, you'll probably find me geeking out over new tech, brainstorming big ideas, or teaching others how to craft their ideas with code.</li>
+                </ul>
+            </div>
+            
           </div>
-      </section>
+          
+    </section>
       
         
         <button id="backToTop" class="btn btn-dark">
@@ -236,6 +273,9 @@
       </div>
     </div>
 
+
+    
+
   </div>
 </section>
 
@@ -302,6 +342,10 @@
           <i class="fas fa-code"></i>
           <p>Machine Learning</p>
       </div>
+      <div class="skill-card">
+        <i class="fas fa-microchip"></i>
+        <p>Robotics</p>
+      </div>
 
       <!-- Other Skills -->
       <div class="skill-card">
@@ -337,13 +381,10 @@
         </section>
     </main>
 
-    <!-- Dark mode toggle button -->
-    <button id="dark-mode-toggle" class="btn btn-dark floating-button">
-        <span id="dark-mode-icon">🌖️</span>
-    </button>
+    
     
     <!-- Footer Section -->
-    <footer class="bg-dark text-white text-center py-4">
+    <footer class=" text-white text-center py-4">
         <div class="social-media mb-3">
             <a href="https://x.com/ElielBright" target="_blank" class="mx-2">
                 <i class="fab fa-twitter fa-2x"></i>
@@ -354,14 +395,12 @@
             <a href="https://github.com/ElielBright" target="_blank" class="mx-2">
                 <i class="fab fa-github fa-2x"></i>
             </a>
-            <a href="https://www.instagram.com/elielbright3/" target="_blank" class="mx-2">
-                <i class="fab fa-instagram fa-2x"></i>
-            </a>
+            
         </div>
         <p>&copy; 2024 Eliel Bright. All rights reserved.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+
 </body>
 </html>
