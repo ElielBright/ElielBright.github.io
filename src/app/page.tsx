@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Server, Database, Bot, Users, TrendingUp, Mic, Calendar, Eye, Box, MessageSquare, Presentation, Book, ShoppingBag, Cake, Settings, Search } from "lucide-react";
+import { ArrowRight, Server, Database, Bot, Users, TrendingUp, Mic, Calendar, Eye, Box, MessageSquare, Presentation, Book, ShoppingBag, Cake, Settings, Search, Gamepad2 } from "lucide-react";
 
 export default function Home() {
   const containerVariants = {
@@ -121,6 +121,17 @@ export default function Home() {
             
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
               
+              <div className="glass-panel">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                  <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Gamepad2 size={24} /></div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Lamadlab</h3>
+                </div>
+                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An edu-based game generator that helps to curate educative courses into fun interactive games.</p>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  <span className="pill">EdTech</span><span className="pill">Gaming</span><span className="pill">Interactive</span>
+                </div>
+              </div>
+
               <div className="glass-panel">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
                   <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Bot size={24} /></div>
