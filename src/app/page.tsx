@@ -323,7 +323,7 @@ export default function Home() {
             <h2 className="section-title">Technical Expertise</h2>
             
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', maxWidth: '800px', margin: '0 auto' }}>
-              {["Python", "JavaScript", "TypeScript", "C++", "Node.js", "Express.js", "React", "React Native", "Next.js", "Vite", "MongoDB", "PostgreSQL", "Firebase", "AI Agents", "RAG Systems", "NLP", "Automation Systems", "AWS", "Google Cloud", "Linux", "Contabo", "Docker", "WebSockets", "Git", "Electron", "Arduino"].map((skill, index) => (
+              {["Python", "JavaScript", "TypeScript", "C++", "Node.js", "Express.js", "React", "React Native", "Next.js", "Vite", "MongoDB", "PostgreSQL", "Firebase", "AI Agents", "RAG Systems", "NLP", "Automation Systems", "AWS","render", "Google Cloud", "Linux", "Contabo", "Docker", "WebSockets", "Git", "Electron", "Arduino"].map((skill, index) => (
                 <motion.div 
                   key={index}
                   initial={{ opacity: 0, y: 10 }}
