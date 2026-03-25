@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Server, Database, Bot, Users, TrendingUp, Mic, Calendar, Eye, Box, MessageSquare, Presentation, Book, ShoppingBag, Cake, Settings, Search, Gamepad2 } from "lucide-react";
+import { ArrowRight, Server, Database, Bot, Users, TrendingUp, Mic, Calendar, Eye, Box, MessageSquare, Presentation, Book, ShoppingBag, Cake, Settings, Search, Gamepad2, Brain } from "lucide-react";
 
 export default function Home() {
   const containerVariants = {
@@ -123,6 +123,17 @@ export default function Home() {
               
               <div className="glass-panel">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                  <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Brain size={24} /></div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>FlashLearn</h3>
+                </div>
+                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An AI-powered RAG application that transforms documents (PPT, DOCX, PDF, Excel) into interactive learning flashcards. Features offline mobile export via HTML and JSON.</p>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  <span className="pill">RAG</span><span className="pill">EdTech</span><span className="pill">AI</span>
+                </div>
+              </div>
+
+              <div className="glass-panel">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
                   <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Gamepad2 size={24} /></div>
                   <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Lamadlab</h3>
                 </div>
@@ -137,7 +148,7 @@ export default function Home() {
                   <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Bot size={24} /></div>
                   <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>CardioAR</h3>
                 </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An AI-powered Augmented Reality learning platform built to help students explore human anatomy. Bitmark Hackathon Winning Project.</p>
+                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An AI-powered Augmented Reality learning platform built to help students explore human anatomy. Devpost Winning Hackathon Project.</p>
                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                   <span className="pill">React</span><span className="pill">Vite</span><span className="pill">AI/AR</span>
                 </div>
