@@ -133,6 +133,21 @@ export default function Home() {
               </div>
 
               <div className="glass-panel">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Gamepad2 size={24} /></div>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>BitZ</h3>
+                  </div>
+                  <span style={{ fontSize: '0.7rem', color: '#facc15', background: 'rgba(250,204,21,0.1)', border: '1px solid rgba(250,204,21,0.3)', borderRadius: '4px', padding: '0.2rem 0.5rem', whiteSpace: 'nowrap' }}>🏆 Hackathon Winner</span>
+                </div>
+                <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>An EdTech application built for the Edubase Bitmark Hackathon — designed and shipped in 24 hours. Won the challenge by delivering an engaging, interactive learning experience powered by the Bitmark protocol.</p>
+                <span style={{ display: 'inline-block', fontSize: '0.75rem', color: 'var(--primary)', marginBottom: '1.5rem', padding: '0.2rem 0.5rem', border: '1px solid rgba(129, 140, 248, 0.3)', borderRadius: '4px' }}>Built in 24 Hours · 2026</span>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  <span className="pill">EdTech</span><span className="pill">Bitmark</span><span className="pill">Hackathon</span>
+                </div>
+              </div>
+
+              <div className="glass-panel">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
                   <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Gamepad2 size={24} /></div>
                   <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Lamadlab</h3>
@@ -144,13 +159,16 @@ export default function Home() {
               </div>
 
               <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Bot size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>CardioAR</h3>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Bot size={24} /></div>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>CardioAR</h3>
+                  </div>
+                  <span style={{ fontSize: '0.7rem', color: '#facc15', background: 'rgba(250,204,21,0.1)', border: '1px solid rgba(250,204,21,0.3)', borderRadius: '4px', padding: '0.2rem 0.5rem', whiteSpace: 'nowrap' }}>🥇 1st Place Winner</span>
                 </div>
                 <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An AI-powered Augmented Reality learning platform built to help students explore human anatomy. Devpost Winning Hackathon Project.</p>
                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">React</span><span className="pill">Vite</span><span className="pill">AI/AR</span>
+                  <span className="pill">EdTech</span><span className="pill">React</span><span className="pill">Vite</span><span className="pill">AI/AR</span>
                 </div>
               </div>
 
