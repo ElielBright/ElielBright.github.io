@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Server, Database, Bot, Users, TrendingUp, Mic, Calendar, Eye, Box, MessageSquare, Presentation, Book, ShoppingBag, Cake, Settings, Search, Gamepad2, Brain } from "lucide-react";
+import { ArrowRight, Server, Database, Bot, Users, TrendingUp, Mic, Calendar, Eye, Box, MessageSquare, Presentation, Book, ShoppingBag, Cake, Settings, Search, Gamepad2, Brain, Monitor } from "lucide-react";
 
 export default function Home() {
   const containerVariants = {
@@ -121,6 +121,17 @@ export default function Home() {
             
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
               
+              <div className="glass-panel">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                  <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Monitor size={24} /></div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>EurekaGUI</h3>
+                </div>
+                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An offline desktop application serving as a GUI for Ollama models. It allows seamless, internet-free interaction with local AI models for coding assistance and everyday tasks.</p>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  <span className="pill">Electron</span><span className="pill">Local AI</span><span className="pill">Ollama</span>
+                </div>
+              </div>
+
               <div className="glass-panel">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
                   <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Brain size={24} /></div>
