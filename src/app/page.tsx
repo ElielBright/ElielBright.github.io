@@ -122,6 +122,21 @@ export default function Home() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
               
               <div className="glass-panel">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Server size={24} /></div>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>&quot;Eliel&quot; AI Proxy</h3>
+                  </div>
+                  <span style={{ fontSize: '0.7rem', color: '#10b981', background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '4px', padding: '0.2rem 0.5rem', whiteSpace: 'nowrap' }}>Autonomous Server</span>
+                </div>
+                <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>An end-to-end, locally hosted AI proxy daemon acting as my digital twin on WhatsApp, fully operable via a centralized Telegram administrative microservice. Processes text, audio via a custom FFmpeg/Whisper pipeline, and executes dynamic tool calling.</p>
+                <span style={{ display: 'inline-block', fontSize: '0.75rem', color: 'var(--primary)', marginBottom: '1.5rem', padding: '0.2rem 0.5rem', border: '1px solid rgba(129, 140, 248, 0.3)', borderRadius: '4px' }}>100% Offline & Privacy-First</span>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  <span className="pill">Local LLMs</span><span className="pill">Whisper.cpp</span><span className="pill">Puppeteer</span><span className="pill">Telegram API</span>
+                </div>
+              </div>
+
+              <div className="glass-panel">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
                   <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Monitor size={24} /></div>
                   <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>EurekaGUI</h3>
