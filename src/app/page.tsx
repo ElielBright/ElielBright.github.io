@@ -1,50 +1,289 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Server, Database, Bot, Users, TrendingUp, Mic, Calendar, Eye, Box, MessageSquare, Presentation, Book, ShoppingBag, Cake, Settings, Search, Gamepad2, Brain, Monitor } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import {
+  ArrowRight, Server, Database, Bot, Users, TrendingUp, Mic, Calendar, Eye,
+  Box, MessageSquare, Presentation, Book, ShoppingBag, Cake, Settings, Search,
+  Gamepad2, Brain, Monitor, Code2,
+} from "lucide-react";
+
+/* ---------------- Data ---------------- */
+
+type Experience = {
+  role: string;
+  org: string;
+  current?: boolean;
+  desc: string;
+};
+
+const EXPERIENCE: Experience[] = [
+  {
+    role: "AI Intern / Full-Stack Developer",
+    org: "Copianto AI · 2025 - Present",
+    current: true,
+    desc: "Built and deployed RAG-based AI applications using modern frameworks, significantly improving response relevance and latency. Engineered Slack integrations via APIs to automate workflows, and integrated AI features directly into user-facing frontend applications.",
+  },
+  {
+    role: "Hackathon Winner & React Educator",
+    org: "Skapez Mpier · 2024 - Present",
+    desc: "Winner of the Bitmark Hackathon for “CardioAR”, an AI-powered AR learning platform utilizing React and Vite. Additionally, taught React development to over 3,000 students through dedicated online courses.",
+  },
+  {
+    role: "Software Developer",
+    org: "Freelance & Independent Projects · 2023 - Present",
+    desc: "Developed a suite of high-impact products including a scalable e-commerce & delivery platform, a React Native mobile app, an automated trading bot, and customized AI voice tools using Coqui AI and Fish Audio.",
+  },
+  {
+    role: "STEM & Robotics Educator",
+    org: "2019 - Present",
+    desc: "Taught robotics fundamentals using Arduino and Scratch. Led hands-on hardware and robotic engineering projects, introducing students to ML concepts and automated systems logic.",
+  },
+];
+
+type Badge = { label: string; tone: "accent" | "success" | "gold" };
+
+type Project = {
+  title: string;
+  icon: LucideIcon;
+  desc: string;
+  badge?: Badge;
+  note?: string;
+  tags: string[];
+};
+
+const PROJECTS: Project[] = [
+  {
+    title: "Ignis Claw",
+    icon: Code2,
+    badge: { label: "VS Code Extension", tone: "accent" },
+    desc: "An AI coding agent built as a VS Code extension — bringing autonomous code generation and in-editor assistance directly into the developer workflow.",
+    tags: ["AI Agent", "VS Code", "Dev Tools"],
+  },
+  {
+    title: "Self-hosted AI Assistant",
+    icon: Bot,
+    badge: { label: "Self-Hosted", tone: "success" },
+    note: "Administered from Telegram",
+    desc: "An autonomous agent that drafts and replies to emails and WhatsApp messages — fully self-hosted and administered from Telegram.",
+    tags: ["Autonomous Agent", "Email", "WhatsApp"],
+  },
+  {
+    title: "Arcade Games",
+    icon: Gamepad2,
+    desc: "A collection of small games built for fun with Unity and Godot.",
+    tags: ["Unity", "Godot", "Game Dev"],
+  },
+  {
+    title: "“Eliel” AI Proxy",
+    icon: Server,
+    badge: { label: "Autonomous Server", tone: "success" },
+    note: "100% Offline & Privacy-First",
+    desc: "An end-to-end, locally hosted AI proxy daemon acting as my digital twin on WhatsApp, fully operable via a centralized Telegram administrative microservice. Processes text, audio via a custom FFmpeg/Whisper pipeline, and executes dynamic tool calling.",
+    tags: ["Local LLMs", "Whisper.cpp", "Puppeteer", "Telegram API"],
+  },
+  {
+    title: "EurekaGUI",
+    icon: Monitor,
+    desc: "An offline desktop application serving as a GUI for Ollama models. It allows seamless, internet-free interaction with local AI models for coding assistance and everyday tasks.",
+    tags: ["Electron", "Local AI", "Ollama"],
+  },
+  {
+    title: "FlashLearn",
+    icon: Brain,
+    desc: "An AI-powered RAG application that transforms documents (PPT, DOCX, PDF, Excel) into interactive learning flashcards. Features offline mobile export via HTML and JSON.",
+    tags: ["RAG", "EdTech", "AI"],
+  },
+  {
+    title: "BitZ",
+    icon: Gamepad2,
+    badge: { label: "🏆 Hackathon Winner", tone: "gold" },
+    note: "Built in 24 Hours · 2026",
+    desc: "An EdTech application built for the Edubase Bitmark Hackathon — designed and shipped in 24 hours. Won the challenge by delivering an engaging, interactive learning experience powered by the Bitmark protocol.",
+    tags: ["EdTech", "Bitmark", "Hackathon"],
+  },
+  {
+    title: "CardioAR",
+    icon: Bot,
+    badge: { label: "🥇 1st Place Winner", tone: "gold" },
+    desc: "An AI-powered Augmented Reality learning platform built to help students explore human anatomy. Devpost Winning Hackathon Project.",
+    tags: ["EdTech", "React", "Vite", "AI/AR"],
+  },
+  {
+    title: "Yemex Delivery App",
+    icon: Server,
+    note: "Proprietary Application",
+    desc: "A scalable delivery management application featuring a robust e-commerce module for users to seamlessly browse and purchase items.",
+    tags: ["Node.js", "PostgreSQL", "Architecture"],
+  },
+  {
+    title: "CarKits PWA",
+    icon: Database,
+    note: "Private Client Work",
+    desc: "A Progressive Web App created for a private client in the automotive sales space, streamlining parts lookup and purchases.",
+    tags: ["React", "PWA", "MongoDB"],
+  },
+  {
+    title: "Mentorship Platform",
+    icon: Users,
+    desc: "A community application bridging the gap between learners and experienced professionals.",
+    tags: ["Full-stack", "Web", "MongoDB"],
+  },
+  {
+    title: "Automated Trading Bot",
+    icon: TrendingUp,
+    desc: "A custom financial algorithm bot built to automate trading participation with real-time analytics.",
+    tags: ["Python", "Algorithms", "Finance"],
+  },
+  {
+    title: "Sisi's Clothing",
+    icon: ShoppingBag,
+    desc: "An online clothing shop offering a wide range of stylish apparel.",
+    tags: ["React Native", "Mobile", "Node.js"],
+  },
+  {
+    title: "Podcast Studio Platform",
+    icon: Mic,
+    desc: "An audio production platform integrated with Coqui AI and Fish Audio for advanced voice cloning and natural synthesis.",
+    tags: ["React", "Voice AI", "Python"],
+  },
+  {
+    title: "Meeting Assistant Bot",
+    icon: Calendar,
+    desc: "An automated bot allowing seamless meeting participation, voice interactions, and note-tracking.",
+    tags: ["NLP", "Automation", "Python"],
+  },
+  {
+    title: "Object Detection Bot",
+    icon: Eye,
+    desc: "An object detection bot making use of computer vision, AI, and Arduino to interact with the environment.",
+    tags: ["Computer Vision", "AI", "Arduino"],
+  },
+  {
+    title: "3D Interactive Learning",
+    icon: Box,
+    desc: "An immersive educational experience delivering complex topics through interactive 3D models.",
+    tags: ["3D", "Interactive", "Web"],
+  },
+  {
+    title: "Ember",
+    icon: MessageSquare,
+    desc: "A custom-made chatbot tailored for online stores and support, designed with flexibility to integrate future AI enhancements.",
+    tags: ["Chatbot", "AI Support", "E-Commerce"],
+  },
+  {
+    title: "Slide Generator",
+    icon: Presentation,
+    desc: "A machine learning model that automatically generates presentation slides based on textual input.",
+    tags: ["Machine Learning", "Automation", "Python"],
+  },
+  {
+    title: "Scripture and Spirit",
+    icon: Book,
+    desc: "A Christian-based community platform for connecting with religious groups, accessing spiritual media, and conducting Bible studies guided by a dedicated theological AI assistant.",
+    tags: ["Community", "AI Assistant", "Media"],
+  },
+  {
+    title: "Sweet Delights",
+    icon: Cake,
+    desc: "A beautiful digital storefront for a pastry shop specializing in delicious fruit-based pastries.",
+    tags: ["E-Commerce", "UI/UX", "Frontend"],
+  },
+  {
+    title: "AreSistv",
+    icon: Settings,
+    desc: "An advanced accessibility tool built reliably as a Chrome Extension.",
+    tags: ["Chrome Extension", "Accessibility", "JavaScript"],
+  },
+  {
+    title: "Custom RAG",
+    icon: Search,
+    desc: "A custom-made Retrieval-Augmented Generation application that helps you with precise knowledge retrieval.",
+    tags: ["LLM", "RAG", "AI"],
+  },
+];
+
+const SKILLS = [
+  "Python", "JavaScript", "TypeScript", "C++", "Node.js", "Express.js", "React",
+  "React Native", "Next.js", "Vite", "MongoDB", "PostgreSQL", "Firebase",
+  "AI Agents", "RAG Systems", "NLP", "Automation Systems", "AWS", "Render",
+  "Google Cloud", "Linux", "Docker", "WebSockets", "Git", "Electron", "Arduino",
+];
+
+/* ---------------- Motion ---------------- */
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const stagger = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
+};
+
+/* ---------------- Card ---------------- */
+
+function ProjectCard({ project }: { project: Project }) {
+  const Icon = project.icon;
+  return (
+    <motion.article variants={fadeUp} className="card">
+      <div className="card-head">
+        <div className="card-head-left">
+          <span className="card-icon"><Icon size={22} aria-hidden="true" /></span>
+          <h3 className="card-title">{project.title}</h3>
+        </div>
+        {project.badge && (
+          <span className={`badge badge-${project.badge.tone}`}>{project.badge.label}</span>
+        )}
+      </div>
+      <p className="card-desc" style={{ marginBottom: project.note ? "1rem" : "1.25rem" }}>
+        {project.desc}
+      </p>
+      {project.note && (
+        <p style={{ marginBottom: "1.25rem" }}>
+          <span className="note">{project.note}</span>
+        </p>
+      )}
+      <div className="tag-row">
+        {project.tags.map((tag) => (
+          <span key={tag} className="tag">{tag}</span>
+        ))}
+      </div>
+    </motion.article>
+  );
+}
+
+/* ---------------- Page ---------------- */
 
 export default function Home() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.3 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.6 } }
-  };
-
   return (
     <>
-      {/* HERO SECTION */}
-      <section className="section" style={{ minHeight: '90vh', display: 'flex', alignItems: 'center' }}>
+      {/* HERO */}
+      <section className="section" style={{ minHeight: "82vh", display: "flex", alignItems: "center" }}>
         <div className="container">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            style={{ maxWidth: '800px' }}
-          >
-            <motion.div variants={itemVariants} style={{ marginBottom: '1.5rem' }}>
-              <span className="pill" style={{ color: 'var(--primary)', borderColor: 'var(--primary)', background: 'rgba(129, 140, 248, 0.1)' }}>
-                Welcome to my portfolio
-              </span>
-            </motion.div>
-            
-            <motion.h1 variants={itemVariants} style={{ fontSize: '4rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '2rem' }}>
-              I build <span style={{ color: 'var(--accent)' }}>AI-powered</span> applications that scale.
-            </motion.h1>
-            
-            <motion.p variants={itemVariants} style={{ fontSize: '1.25rem', color: 'var(--text-muted)', marginBottom: '3rem', maxWidth: '650px' }}>
-              I am a Full-stack Developer with 7+ years of experience specializing in Python, React, modern web architecture, and AI integrations like RAG & NLP systems.
+          <motion.div variants={stagger} initial="hidden" animate="visible" style={{ maxWidth: "820px" }}>
+            <motion.p variants={fadeUp} className="eyebrow" style={{ marginBottom: "1.25rem" }}>
+              Eliel Kwesi Agbeke
             </motion.p>
-            
-            <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+
+            <motion.h1 variants={fadeUp} style={{ fontSize: "clamp(2.75rem, 7vw, 4.5rem)", fontWeight: 800, marginBottom: "1.25rem" }}>
+              Full-Stack Developer
+            </motion.h1>
+
+            <motion.p variants={fadeUp} style={{ fontSize: "clamp(1.25rem, 3vw, 1.6rem)", color: "var(--foreground)", fontWeight: 500, marginBottom: "1.5rem" }}>
+              I build <span style={{ color: "var(--accent)" }}>AI-powered</span> web &amp; mobile products.
+            </motion.p>
+
+            <motion.p variants={fadeUp} style={{ fontSize: "1.1rem", color: "var(--text-muted)", marginBottom: "2.5rem", maxWidth: "640px" }}>
+              I&apos;m a full-stack developer who builds AI-powered products — I integrate and ship AI
+              (RAG, LLMs, and agents) into real web and mobile apps, backed by 7+ years across Python,
+              React, and modern web architecture.
+            </motion.p>
+
+            <motion.div variants={fadeUp} style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
               <a href="#projects" className="btn btn-primary">
-                View My Work <ArrowRight size={18} />
+                View My Work <ArrowRight size={18} aria-hidden="true" />
               </a>
               <a href="https://linkedin.com/in/eliel-agbeke-7b36282a3/" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
                 Connect on LinkedIn
@@ -54,353 +293,68 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EXPERIENCE SECTION */}
-      <section id="experience" className="section" style={{ background: 'rgba(255, 255, 255, 0.01)' }}>
+      {/* EXPERIENCE */}
+      <section id="experience" className="section section-alt">
         <div className="container">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }}>
             <h2 className="section-title">Experience</h2>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', position: 'relative', paddingLeft: '2rem', borderLeft: '2px solid var(--card-border)' }}>
-              
-              <div style={{ position: 'relative' }}>
-                <div style={{ position: 'absolute', left: '-2.55rem', top: '0.25rem', width: '1rem', height: '1rem', borderRadius: '50%', background: 'var(--primary)', boxShadow: '0 0 10px var(--primary)' }}></div>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 600 }}>AI Intern / Full-Stack Developer</h3>
-                <h4 style={{ color: 'var(--accent)', marginBottom: '1rem' }}>Copianto AI &bull; 2025 - Present</h4>
-                <p style={{ color: 'var(--text-muted)' }}>
-                  Built and deployed RAG-based AI applications using modern frameworks, significantly improving response relevance and latency. Engineered Slack integrations via APIs to automate workflows, and integrated AI features directly into user-facing frontend applications.
-                </p>
-              </div>
 
-              <div style={{ position: 'relative' }}>
-                <div style={{ position: 'absolute', left: '-2.55rem', top: '0.25rem', width: '1rem', height: '1rem', borderRadius: '50%', background: 'var(--card-border)' }}></div>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 600 }}>Hackathon Winner & React Educator</h3>
-                <h4 style={{ color: 'var(--accent)', marginBottom: '1rem' }}>Skapez Mpier &bull; 2024 - Present</h4>
-                <p style={{ color: 'var(--text-muted)' }}>
-                  Winner of the Bitmark Hackathon for &quot;CardioAR&quot;, an AI-powered AR learning platform utilizing React and Vite. Additionally, taught React development to over 3,000 students through dedicated online courses.
-                </p>
-              </div>
-
-              <div style={{ position: 'relative' }}>
-                <div style={{ position: 'absolute', left: '-2.55rem', top: '0.25rem', width: '1rem', height: '1rem', borderRadius: '50%', background: 'var(--card-border)' }}></div>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 600 }}>Software Developer</h3>
-                <h4 style={{ color: 'var(--accent)', marginBottom: '1rem' }}>Freelance & Independent Projects &bull; 2023 - Present</h4>
-                <p style={{ color: 'var(--text-muted)' }}>
-                  Developed a suite of high-impact products including a scalable e-commerce & delivery platform, a React Native mobile app, an automated trading bot, and customized AI voice tools using Coqui AI and Fish Audio.
-                </p>
-              </div>
-
-              <div style={{ position: 'relative' }}>
-                <div style={{ position: 'absolute', left: '-2.55rem', top: '0.25rem', width: '1rem', height: '1rem', borderRadius: '50%', background: 'var(--card-border)' }}></div>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 600 }}>STEM & Robotics Educator</h3>
-                <h4 style={{ color: 'var(--accent)', marginBottom: '1rem' }}>2019 - Present</h4>
-                <p style={{ color: 'var(--text-muted)' }}>
-                  Taught robotics fundamentals using Arduino and Scratch. Led hands-on hardware and robotic engineering projects, introducing students to ML concepts and automated systems logic.
-                </p>
-              </div>
-
+            <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem", position: "relative", paddingLeft: "2rem", borderLeft: "2px solid var(--border-strong)" }}>
+              {EXPERIENCE.map((exp) => (
+                <div key={exp.role} style={{ position: "relative" }}>
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      position: "absolute", left: "-2.56rem", top: "0.35rem", width: "0.85rem", height: "0.85rem",
+                      borderRadius: "50%", background: exp.current ? "var(--accent)" : "var(--surface)",
+                      border: `2px solid ${exp.current ? "var(--accent)" : "var(--border-strong)"}`,
+                      boxShadow: exp.current ? "0 0 0 4px var(--accent-soft)" : "none",
+                    }}
+                  />
+                  <h3 style={{ fontSize: "1.35rem", fontWeight: 600 }}>{exp.role}</h3>
+                  <h4 className="mono" style={{ color: "var(--accent)", fontSize: "0.85rem", margin: "0.35rem 0 0.85rem" }}>{exp.org}</h4>
+                  <p style={{ color: "var(--text-muted)" }}>{exp.desc}</p>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* PROJECTS SECTION */}
+      {/* PROJECTS */}
       <section id="projects" className="section">
         <div className="container">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="section-title">Notable Projects</h2>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
-              
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', justifyContent: 'space-between' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Server size={24} /></div>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>&quot;Eliel&quot; AI Proxy</h3>
-                  </div>
-                  <span style={{ fontSize: '0.7rem', color: '#10b981', background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '4px', padding: '0.2rem 0.5rem', whiteSpace: 'nowrap' }}>Autonomous Server</span>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>An end-to-end, locally hosted AI proxy daemon acting as my digital twin on WhatsApp, fully operable via a centralized Telegram administrative microservice. Processes text, audio via a custom FFmpeg/Whisper pipeline, and executes dynamic tool calling.</p>
-                <span style={{ display: 'inline-block', fontSize: '0.75rem', color: 'var(--primary)', marginBottom: '1.5rem', padding: '0.2rem 0.5rem', border: '1px solid rgba(129, 140, 248, 0.3)', borderRadius: '4px' }}>100% Offline & Privacy-First</span>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">Local LLMs</span><span className="pill">Whisper.cpp</span><span className="pill">Puppeteer</span><span className="pill">Telegram API</span>
-                </div>
-              </div>
+          <motion.h2 className="section-title" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }}>
+            Notable Projects
+          </motion.h2>
 
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Monitor size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>EurekaGUI</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An offline desktop application serving as a GUI for Ollama models. It allows seamless, internet-free interaction with local AI models for coding assistance and everyday tasks.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">Electron</span><span className="pill">Local AI</span><span className="pill">Ollama</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Brain size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>FlashLearn</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An AI-powered RAG application that transforms documents (PPT, DOCX, PDF, Excel) into interactive learning flashcards. Features offline mobile export via HTML and JSON.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">RAG</span><span className="pill">EdTech</span><span className="pill">AI</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', justifyContent: 'space-between' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Gamepad2 size={24} /></div>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>BitZ</h3>
-                  </div>
-                  <span style={{ fontSize: '0.7rem', color: '#facc15', background: 'rgba(250,204,21,0.1)', border: '1px solid rgba(250,204,21,0.3)', borderRadius: '4px', padding: '0.2rem 0.5rem', whiteSpace: 'nowrap' }}>🏆 Hackathon Winner</span>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>An EdTech application built for the Edubase Bitmark Hackathon — designed and shipped in 24 hours. Won the challenge by delivering an engaging, interactive learning experience powered by the Bitmark protocol.</p>
-                <span style={{ display: 'inline-block', fontSize: '0.75rem', color: 'var(--primary)', marginBottom: '1.5rem', padding: '0.2rem 0.5rem', border: '1px solid rgba(129, 140, 248, 0.3)', borderRadius: '4px' }}>Built in 24 Hours · 2026</span>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">EdTech</span><span className="pill">Bitmark</span><span className="pill">Hackathon</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Gamepad2 size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Lamadlab</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An edu-based game generator that helps to curate educative courses into fun interactive games.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">EdTech</span><span className="pill">Gaming</span><span className="pill">Interactive</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', justifyContent: 'space-between' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Bot size={24} /></div>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>CardioAR</h3>
-                  </div>
-                  <span style={{ fontSize: '0.7rem', color: '#facc15', background: 'rgba(250,204,21,0.1)', border: '1px solid rgba(250,204,21,0.3)', borderRadius: '4px', padding: '0.2rem 0.5rem', whiteSpace: 'nowrap' }}>🥇 1st Place Winner</span>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An AI-powered Augmented Reality learning platform built to help students explore human anatomy. Devpost Winning Hackathon Project.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">EdTech</span><span className="pill">React</span><span className="pill">Vite</span><span className="pill">AI/AR</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', justifyContent: 'space-between' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <div style={{ padding: '0.5rem', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '8px', color: 'var(--accent)' }}><Server size={24} /></div>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Yemex Delivery App</h3>
-                  </div>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>A scalable delivery management application featuring a robust e-commerce module for users to seamlessly browse and purchase items.</p>
-                <span style={{ display: 'inline-block', fontSize: '0.75rem', color: 'var(--primary)', marginBottom: '1.5rem', padding: '0.2rem 0.5rem', border: '1px solid rgba(129, 140, 248, 0.3)', borderRadius: '4px' }}>Proprietary Application</span>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">Node.js</span><span className="pill">PostgreSQL</span><span className="pill">Architecture</span>
-                </div>
-              </div>
-
-
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <div style={{ padding: '0.5rem', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '8px', color: 'var(--accent)' }}><Database size={24} /></div>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>CarKits PWA</h3>
-                  </div>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>A Progressive Web App created for a private client in the automotive sales space, streamlining parts lookup and purchases.</p>
-                 <span style={{ display: 'inline-block', fontSize: '0.75rem', color: 'var(--primary)', marginBottom: '1.5rem', padding: '0.2rem 0.5rem', border: '1px solid rgba(129, 140, 248, 0.3)', borderRadius: '4px' }}>Private Client Work</span>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">React</span><span className="pill">PWA</span><span className="pill">MongoDB</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '8px', color: 'var(--accent)' }}><Users size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Mentorship Platform</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>A community application bridging the gap between learners and experienced professionals.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">Full-stack</span><span className="pill">Web</span><span className="pill">MongoDB</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><TrendingUp size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Automated Trading Bot</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>A custom financial algorithm bot built to automate trading participation with real-time analytics.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">Python</span><span className="pill">Algorithms</span><span className="pill">Finance</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '8px', color: 'var(--accent)' }}><ShoppingBag size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Sisi&apos;s Clothing</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An online clothing shop offering a wide range of stylish apparel.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">React Native</span><span className="pill">Mobile</span><span className="pill">Node.js</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Mic size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Podcast Studio Platform</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An audio production platform integrated with Coqui AI and Fish Audio for advanced voice cloning and natural synthesis.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">React</span><span className="pill">Voice AI</span><span className="pill">Python</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '8px', color: 'var(--accent)' }}><Calendar size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Meeting Assistant Bot</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An automated bot allowing seamless meeting participation, voice interactions, and note-tracking.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">NLP</span><span className="pill">Automation</span><span className="pill">Python</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '8px', color: 'var(--accent)' }}><Eye size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Object Detection Bot</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An object detection bot making use of computer vision, AI, and Arduino to interact with the environment.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">Computer Vision</span><span className="pill">AI</span><span className="pill">Arduino</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Box size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>3D Interactive Learning</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An immersive educational experience delivering complex topics through interactive 3D models.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">3D</span><span className="pill">Interactive</span><span className="pill">Web</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '8px', color: 'var(--accent)' }}><MessageSquare size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Ember</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>A custom-made chatbot tailored for online stores and support, designed with flexibility to integrate future AI enhancements.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">Chatbot</span><span className="pill">AI Support</span><span className="pill">E-Commerce</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Presentation size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Slide Generator</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>A machine learning model that automatically generates presentation slides based on textual input.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">Machine Learning</span><span className="pill">Automation</span><span className="pill">Python</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '8px', color: 'var(--accent)' }}><Book size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Scripture and Spirit</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>A Christian-based community platform for connecting with religious groups, accessing spiritual media, and conducting Bible studies guided by a dedicated theological AI assistant.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">Community</span><span className="pill">AI Assistant</span><span className="pill">Media</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Cake size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Sweet Delights</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>A beautiful digital storefront for a pastry shop specializing in delicious fruit-based pastries.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">E-Commerce</span><span className="pill">UI/UX</span><span className="pill">Frontend</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '8px', color: 'var(--accent)' }}><Settings size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>AreSistv</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>An advanced accessibility tool built reliably as a Chrome Extension.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">Chrome Extension</span><span className="pill">Accessibility</span><span className="pill">JavaScript</span>
-                </div>
-              </div>
-
-              <div className="glass-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ padding: '0.5rem', background: 'rgba(129, 140, 248, 0.1)', borderRadius: '8px', color: 'var(--primary)' }}><Search size={24} /></div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Custom RAG</h3>
-                </div>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>A custom-made Retrieval-Augmented Generation application that helps you with precise knowledge retrieval.</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span className="pill">LLM</span><span className="pill">RAG</span><span className="pill">AI</span>
-                </div>
-              </div>
-
-            </div>
+          <motion.div className="project-grid" variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}>
+            {PROJECTS.map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* SKILLS SECTION */}
-      <section id="skills" className="section" style={{ background: 'rgba(255, 255, 255, 0.01)', marginBottom: '4rem' }}>
+      {/* SKILLS */}
+      <section id="skills" className="section section-alt" style={{ marginBottom: "4rem" }}>
         <div className="container">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            style={{ textAlign: 'center' }}
-          >
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }}>
             <h2 className="section-title">Technical Expertise</h2>
-            
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', maxWidth: '800px', margin: '0 auto' }}>
-              {["Python", "JavaScript", "TypeScript", "C++", "Node.js", "Express.js", "React", "React Native", "Next.js", "Vite", "MongoDB", "PostgreSQL", "Firebase", "AI Agents", "RAG Systems", "NLP", "Automation Systems", "AWS","Render", "Google Cloud", "Linux", "Contabo", "Docker", "WebSockets", "Git", "Electron", "Arduino"].map((skill, index) => (
-                <motion.div 
-                  key={index}
+
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", maxWidth: "820px" }}>
+              {SKILLS.map((skill, index) => (
+                <motion.span
+                  key={skill}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="pill" 
-                  style={{ fontSize: '1rem', padding: '0.75rem 1.5rem', background: 'rgba(15, 17, 21, 0.5)' }}
+                  transition={{ duration: 0.3, delay: Math.min(index * 0.03, 0.4) }}
+                  className="tag"
+                  style={{ fontSize: "0.85rem", padding: "0.5rem 0.9rem" }}
                 >
                   {skill}
-                </motion.div>
+                </motion.span>
               ))}
             </div>
           </motion.div>

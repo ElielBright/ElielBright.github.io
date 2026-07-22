@@ -1,10 +1,10 @@
 export default function Footer() {
   return (
-    <footer style={{ borderTop: '1px solid var(--card-border)', padding: '3rem 0', marginTop: '5rem', background: 'rgba(255, 255, 255, 0.01)' }}>
+    <footer style={{ borderTop: '1px solid var(--border)', padding: '3rem 0', marginTop: '5rem', background: 'var(--background-2)' }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
           <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.5rem' }}>Eliel Kwesi Agbeke</h3>
-          <p style={{ color: 'var(--text-muted)' }}>Full-stack Developer & AI Specialist</p>
+          <p style={{ color: 'var(--text-muted)' }}>Full-Stack Developer — I build AI-powered products</p>
         </div>
         
         <div style={{ display: 'flex', gap: '1.5rem' }}>
@@ -17,7 +17,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="container" style={{ textAlign: 'center', marginTop: '3rem', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
-        <p>&copy; {new Date().getFullYear()} Eliel Kwesi Agbeke. All rights reserved.</p>
+        <p>&copy; 2022 - {new Date().getFullYear()} Eliel Kwesi Agbeke. All rights reserved.</p>
       </div>
     </footer>
   );
