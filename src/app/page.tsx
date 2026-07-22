@@ -276,8 +276,9 @@ export default function Home() {
             </motion.p>
 
             <motion.p variants={fadeUp} style={{ fontSize: "1.1rem", color: "var(--text-muted)", marginBottom: "2.5rem", maxWidth: "640px" }}>
-              I&apos;m a full-stack developer who builds AI-powered products — I integrate and ship AI
-              (RAG, LLMs, and agents) into real web and mobile apps, backed by 7+ years across Python,
+              I&apos;m a full-stack developer who ships complete web and mobile products — from delivery
+              marketplaces and logistics systems to e-commerce and edtech platforms. When a product
+              calls for it, I integrate and ship AI (RAG, LLMs, and agents), working across Python,
               React, and modern web architecture.
             </motion.p>
 
